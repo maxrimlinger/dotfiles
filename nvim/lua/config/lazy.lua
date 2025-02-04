@@ -1,0 +1,68 @@
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+vim.o.ruler = false
+vim.o.showcmd = false
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
+vim.o.autoindent = true
+vim.o.fixeol = false
+vim.o.relativenumber = true
+vim.o.number = true
+vim.o.cc = "80"
+vim.o.timeout = true
+vim.o.timeoutlen = 3000
+vim.o.ttimeout = true
+vim.o.ttimeoutlen = 50
+vim.keymap.set("n", "gs", "<cmd>ClangdSwitchSourceHeader<cr>", {desc="Switch between C source and header file"})
+vim.keymap.set("n", "<c-v>", "<cmd>vert sb#<cr>", {desc="Open last buffer vertically split"})
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "H", "^", {desc="BOL"})
+vim.keymap.set("n", "L", "$", {desc="EOL"})
+vim.keymap.set("n", "<leader>rf", ":checktime<CR>", {desc="Refresh buffers for external changes"})
+vim.keymap.set("n", "<C-s>", ":w<CR>", {desc="Write"})
+vim.cmd.cabbrev("Conf", "tabnew | lcd ~/.config/nvim | e ~/.config/nvim/lua/config/lazy.lua")
+vim.cmd.cabbrev("Notes", "tabnew | lcd /mnt/c/Users/max/OneDrive/notes/school/third_yr/spring | NvimTreeOpen")
+vim.cmd([[
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
+]])
+vim.keymap.set("n", "<leader>gq", "gggqG", {desc="Format entire buffer"})
+
+-- Setup lazy.nvim
+require("lazy").setup({
+    {import = "config.plugins"},
+    {import = "config.plugins.lsp"},
+    {import = "config.colorschemes"}
+})
+
+vim.cmd [[colorscheme gruvbox]]
