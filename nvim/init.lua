@@ -1,1 +1,1 @@
-require("config.lazy") asdf
+require("config.lazy")
