@@ -121,3 +121,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+alias wvim="nvim -c 'lcd ~/sync/notes/school/third_yr/spring | NvimTreeOpen'"
