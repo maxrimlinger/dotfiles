@@ -56,7 +56,7 @@ if executable(s:clip)
     augroup END
 endif
 ]])
-vim.keymap.set("n", "<leader>gq", "mzgggqG`z", {desc="Format entire buffer"})
+vim.keymap.set("n", "<leader>gq", "mzgggqG`zzz", {desc="Format entire buffer"})
 
 -- Setup lazy.nvim
 require("lazy").setup({
