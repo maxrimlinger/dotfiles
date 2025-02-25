@@ -57,6 +57,8 @@ if executable(s:clip)
 endif
 ]])
 vim.keymap.set("n", "<leader>gq", "mzgggqG`zzz", {desc="Format entire buffer"})
+vim.keymap.set("n", "<leader>sce", "<cmd>setlocal spell spelllang=en_us<cr>", {desc="Enable spellcheck"})
+vim.keymap.set("n", "<leader>scd", "<cmd>setlocal nospell<cr>", {desc="Disable spellcheck"})
 
 -- Setup lazy.nvim
 require("lazy").setup({
