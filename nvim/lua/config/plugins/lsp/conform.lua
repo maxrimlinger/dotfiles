@@ -9,6 +9,9 @@ return {
             },
         })
         
-        vim.keymap.set("n", "<leader>gq", function() conform.format() end, {desc="Format entire buffer"})
+        vim.keymap.set("n", "<leader>gq", function() 
+            conform.format() 
+            vim.cmd [[w]]
+        end, {desc="Format entire buffer"})
     end,
 }
