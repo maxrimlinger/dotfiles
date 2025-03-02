@@ -9,7 +9,8 @@ return {
         ensure_installed = {
             "clangd",
             "pylsp",
-            "jdtls"
+            "jdtls",
+            "mdformat",
         }
     }
 }
