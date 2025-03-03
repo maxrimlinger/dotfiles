@@ -56,14 +56,13 @@ if executable(s:clip)
     augroup END
 endif
 ]])
--- vim.keymap.set("n", "<leader>gq", "mzgggqG`zzz", {desc="Format entire buffer"})
 vim.keymap.set("n", "<leader>sce", "<cmd>setlocal spell spelllang=en_us<cr>", {desc="Enable spellcheck"})
 vim.keymap.set("n", "<leader>scd", "<cmd>setlocal nospell<cr>", {desc="Disable spellcheck"})
--- indents
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "lua",
 	command = "setlocal shiftwidth=4 tabstop=4"
 })
+vim.cmd [[set laststatus=1]]
 
 -- Setup lazy.nvim
 require("lazy").setup({
