@@ -62,7 +62,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "lua",
 	command = "setlocal shiftwidth=4 tabstop=4"
 })
-vim.cmd [[set laststatus=1]]
 
 -- Setup lazy.nvim
 require("lazy").setup({
