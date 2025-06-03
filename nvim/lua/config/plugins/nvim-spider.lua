@@ -15,5 +15,6 @@ return {
     skipInsignificantPunctuation = false,
     config = function()
         vim.keymap.set("n", "c<leader>w", "c<cmd>lua require('spider').motion('e')<CR>");
-    end
+    end,
+    lazy = true,
 }

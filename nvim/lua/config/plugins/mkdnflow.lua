@@ -12,5 +12,6 @@ return {
                 MkdnSTab = {{'i', 'n', 'v'}, '<S-Tab>'},
             },
         })
-    end
+    end,
+    lazy = true,
 }

@@ -6,5 +6,6 @@ return {
                 enabled_close_on_slash = true,
             },
         })
-    end
+    end,
+    lazy = true
 }

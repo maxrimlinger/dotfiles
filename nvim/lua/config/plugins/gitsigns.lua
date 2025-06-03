@@ -48,5 +48,5 @@ return {
             map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', {desc="Select hunk"})
           end
         })
-    end
+    end,
 }

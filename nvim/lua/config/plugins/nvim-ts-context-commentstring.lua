@@ -12,4 +12,5 @@ return {
                 or get_option(filetype, option)
         end
     end,
+    lazy = true
 }
