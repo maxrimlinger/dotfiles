@@ -16,5 +16,5 @@ return {
     config = function()
         vim.keymap.set("n", "c<leader>w", "c<cmd>lua require('spider').motion('e')<CR>");
     end,
-    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
 }
