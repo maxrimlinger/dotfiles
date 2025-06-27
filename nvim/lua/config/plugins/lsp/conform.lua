@@ -14,5 +14,5 @@ return {
             vim.cmd [[w]]
         end, {desc="Format entire buffer"})
     end,
-    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
 }
