@@ -7,5 +7,5 @@ return {
             },
         })
     end,
-    lazy = true
+    event = { "BufReadPre", "BufNewFile" },
 }
