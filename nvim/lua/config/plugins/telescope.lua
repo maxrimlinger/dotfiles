@@ -6,6 +6,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
+    "debugloop/telescope-undo.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -20,14 +21,25 @@ return {
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_to_qflist,
           },
+          n = {
+            ["<C-c>"] = actions.close
+          },
         },
         cache_picker = {
           num_pickers = 8,
         },
       },
+      extensions = {
+        undo = {
+          -- telescope-undo.nvim config, see https://github.com/debugloop/telescope-undo.nvim
+        },
+        -- other extensions:
+        -- file_browser = { ... }
+      },
     })
 
     telescope.load_extension("fzf")
+    telescope.load_extension("undo")
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
@@ -38,5 +50,6 @@ return {
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>fp", "<cmd>Telescope resume<cr>", { desc = "Open previous Telescope search" })
     keymap.set("n", "<leader>fh", "<cmd>Telescope pickers<cr>", { desc = "Open Telescope search history" })
+    keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Open Telescope undo tree" })
   end,
 }
