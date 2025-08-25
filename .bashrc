@@ -122,7 +122,7 @@ export NVM_DIR="$HOME/.nvm"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-alias wvim="nvim -c 'lcd ~/sync/notes/school/third_yr/spring | NvimTreeOpen'"
+alias wvim="nvim -c 'lcd ~/sync/notes/school/fourth_yr/fall | NvimTreeOpen'"
 alias gitprune="git fetch --prune; git branch -vv | grep 'gone]' | awk '{print \$1}' | xargs git branch -D"
 alias ls="ls --color=auto -F"
 
