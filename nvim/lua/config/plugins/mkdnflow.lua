@@ -13,4 +13,5 @@ return {
             },
         })
     end,
+    ft = {"markdown"}
 }
