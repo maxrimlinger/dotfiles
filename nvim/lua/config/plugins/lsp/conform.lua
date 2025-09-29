@@ -5,7 +5,10 @@ return {
 
         conform.setup({
             formatters_by_ft = {
-                markdown = { "mdformat" },
+                markdown = { "mdslw" },
+            },
+            formatters = {
+                mdslw = { prepend_args = { "--stdin-filepath", "$FILENAME" } },
             },
         })
         
