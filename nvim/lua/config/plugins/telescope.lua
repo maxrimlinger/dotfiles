@@ -22,11 +22,12 @@ return {
             ["<C-q>"] = actions.send_to_qflist,
           },
           n = {
-            ["<C-c>"] = actions.close
+            ["<C-c>"] = actions.close,
+            ["q"] = actions.close,
           },
         },
         cache_picker = {
-          num_pickers = 8,
+          num_pickers = 10,
         },
       },
       extensions = {
@@ -44,12 +45,12 @@ return {
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-    keymap.set("n", "<leader>fp", "<cmd>Telescope resume<cr>", { desc = "Open previous Telescope search" })
-    keymap.set("n", "<leader>fh", "<cmd>Telescope pickers<cr>", { desc = "Open Telescope search history" })
-    keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Open Telescope undo tree" })
+    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Files" })
+    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recent files" })
+    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "String" })
+    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "String under cursor" })
+    keymap.set("n", "<leader>fp", "<cmd>Telescope resume<cr>", { desc = "Prev Telescope session" })
+    keymap.set("n", "<leader>fh", "<cmd>Telescope pickers<cr>", { desc = "Telescope history" })
+    keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Undo Tree" })
   end,
 }
