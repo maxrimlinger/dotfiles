@@ -62,6 +62,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "lua",
 	command = "setlocal shiftwidth=4 tabstop=4"
 })
+vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz", {desc="Move to next item in quickfix list"})
+vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz", {desc="Move to prev item in quickfix list"})
 
 -- Setup lazy.nvim
 require("lazy").setup({
