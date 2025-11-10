@@ -44,7 +44,7 @@ vim.keymap.set("n", "H", "^", {desc="BOL"})
 vim.keymap.set("n", "L", "$", {desc="EOL"})
 vim.keymap.set("n", "<leader>rf", ":checktime<CR>", {desc="Refresh buffers for external changes"})
 vim.keymap.set("n", "<C-s>", ":w<CR>", {desc="Write"})
-vim.cmd.cabbrev("Conf", "tabnew | lcd ~/.config/nvim | e ~/.config/nvim/lua/config/lazy.lua")
+vim.cmd.cabbrev("Conf", "tabnew | lcd ~/.config/nvim/lua/config/plugins | e ~/.config/nvim/lua/config/lazy.lua")
 vim.cmd.cabbrev("Notes", "tabnew | lcd ~/sync/notes/school/fourth_yr/fall/ | NvimTreeOpen")
 vim.cmd([[
 " WSL yank support
